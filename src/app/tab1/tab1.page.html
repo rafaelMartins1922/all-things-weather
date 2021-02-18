@@ -8,10 +8,13 @@
   <div class = "div-content" *ngIf = 'weatherData != null'>
     <ion-card *ngFor = 'let city of weatherData'>
       <ion-card-header>
-        <ion-card-title>{{city.name}}</ion-card-title>
-        <img src="../../assets/boorkmarks-icon.svg"/>
+        <ion-row>
+          <ion-card-title>{{city.name}}</ion-card-title>
+          <ion-button (click) = "markCityAsFavorite(city.id)">
+            <img src="../../assets/boorkmarks-icon.svg"/>
+          </ion-button>
+        </ion-row>
       </ion-card-header>
-
       <ion-card-content>
         <ion-row>
           <ion-col>

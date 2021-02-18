@@ -19,7 +19,6 @@ export class Tab1Page {
       search: [null]
     });
     this.platform.ready().then(() => {
-     
       this.getCurrentLocation();
       this.checkFavorites();
     })
@@ -49,16 +48,29 @@ export class Tab1Page {
     });
   }
 
-  public markCityAsFavorite(){
+  public markCityAsFavorite(id: any){
     let favorites = JSON.parse(localStorage.getItem('favorites'));
-    console.log
+    if(this.isInFavorites(favorites,id)){
+      console.log('Já foi favoritado');
+      let index = favorites.indexOf(id);
+      favorites.splice(index,1);
+    }else{
+      console.log('Não foi favoritado ainda');
+      favorites.push(id);
+    }
+    localStorage.setItem('favorites',JSON.stringify(favorites));
+    console.log(localStorage.getItem('favorites'));
+    console.log('SSSSSSSSSSSSSSAAAAAAAAAAA');
   }
 
   public checkFavorites(){
-    let favorites = [localStorage.getItem('favorites')];
+    let favorites = localStorage.getItem('favorites');
     if(favorites == null){
-      favorites = [];
-      localStorage.setItem('favorites',JSON.stringify(favorites));
+      localStorage.setItem('favorites',JSON.stringify([]))
     }
+  }
+
+  isInFavorites(favorites:any,id:any){
+    return favorites.includes(id);
   }
 }
