@@ -1,5 +1,7 @@
 {
   "name": "all-things-weather",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
