@@ -21,7 +21,7 @@ export class Tab1Page {
     this.platform.ready().then(() => {
       this.getCurrentLocation();
       this.checkFavorites();
-    })
+    });
   }
 
   getCurrentLocation(){

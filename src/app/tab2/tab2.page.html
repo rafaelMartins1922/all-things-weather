@@ -1,17 +1,30 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class = "div-content" *ngIf = 'weatherData != null && weatherData.length > 0'>
+    <ion-card *ngFor = 'let city of weatherData'>
+      <ion-card-header>
+        <ion-row>
+          <ion-card-title>{{city.name}}</ion-card-title>
+          <ion-button (click) = "markCityAsFavorite(city.id)">
+            <img src="../../assets/boorkmarks-icon.svg"/>
+          </ion-button>
+        </ion-row>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-row>
+          <ion-col>
+            <img src="http://openweathermap.org/img/wn/{{city.weather[0].icon}}@2x.png" alt="star-icon"/>
+            <p>{{(city.main.temp - 273.15).toFixed(2)}}°C</p>
+          </ion-col>
+          <ion-col>
+            <p>Feels like:  {{(city.main.feels_like - 273.15).toFixed(2)}}°C</p>
+            <p>Wind: {{(city.wind.speed*3.6).toFixed(2)}} km/h</p>
+            <p>Humidity: {{city.main.humidity}}%</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <p>{{city.weather.description}}</p>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

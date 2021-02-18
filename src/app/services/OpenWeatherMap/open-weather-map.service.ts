@@ -31,8 +31,14 @@ export class OpenWeatherMapService {
     });
   }
 
-  cityIdSearch(){
-
+  cityIdSearch(id:any): Observable<any>{
+    let url = 'http://api.openweathermap.org/data/2.5/weather?';
+    let params = new HttpParams();
+    params = id==null? params: params.append('id',id);
+    params = id==null? params: params.append('appid',environment.appid);
+    return this.http.get(url,{
+      params: params
+    });
   }
 
   geoCoordinatesSearch(){
