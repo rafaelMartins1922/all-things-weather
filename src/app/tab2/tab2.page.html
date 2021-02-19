@@ -1,6 +1,6 @@
 <ion-content [fullscreen]="true">
   <div class = "div-content" *ngIf = 'weatherData != null && weatherData.length > 0'>
-    <ion-card *ngFor = 'let city of weatherData'>
+    <ion-card class = "weather-card" *ngFor = 'let city of weatherData'>
       <ion-card-header>
         <ion-row>
           <ion-card-title>{{city.name}}</ion-card-title>

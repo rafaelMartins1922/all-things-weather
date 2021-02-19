@@ -50,7 +50,7 @@ export class Tab1Page {
 
   public markCityAsFavorite(id: any){
     let favorites = JSON.parse(localStorage.getItem('favorites'));
-    if(this.isInFavorites(favorites,id)){
+    if(this.isInFavorites(id)){
       console.log('Já foi favoritado');
       let index = favorites.indexOf(id);
       favorites.splice(index,1);
@@ -70,7 +70,8 @@ export class Tab1Page {
     }
   }
 
-  isInFavorites(favorites:any,id:any){
+  isInFavorites(id:any){
+    let favorites = JSON.parse(localStorage.getItem('favorites'));
     return favorites.includes(id);
   }
 }

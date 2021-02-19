@@ -1,25 +1,21 @@
-<ion-header [translucent]="true">
-  <form [formGroup]="searchForm" (ngSubmit)="searchCityByName(searchForm)">
-    <ion-searchbar formControlName="search" inputmode="search"></ion-searchbar>
-  </form>
-</ion-header>
-
 <ion-content [fullscreen]="true" class="lecontent">
   <div class = "div-content" *ngIf = 'weatherData != null'>
+    <form [formGroup]="searchForm" (ngSubmit)="searchCityByName(searchForm)">
+      <ion-searchbar class="searchbar" formControlName="search" inputmode="search"></ion-searchbar>
+    </form>
     <ion-card *ngFor = 'let city of weatherData'>
       <ion-card-header>
         <ion-row>
           <ion-card-title>{{city.name}}</ion-card-title>
-          <ion-button (click) = "markCityAsFavorite(city.id)">
-            <img src="../../assets/boorkmarks-icon.svg"/>
-          </ion-button>
+            <img src="../../assets/star-icon.svg" (click) = "markCityAsFavorite(city.id)" *ngIf="!isInFavorites(city.id)"/>
+            <img src="../../assets/white-star-icon.svg" (click) = "markCityAsFavorite(city.id)" *ngIf="isInFavorites(city.id)"/>
         </ion-row>
       </ion-card-header>
       <ion-card-content>
         <ion-row>
           <ion-col>
-            <img src="http://openweathermap.org/img/wn/{{city.weather[0].icon}}@2x.png" alt="star-icon"/>
-            <p>{{(city.main.temp - 273.15).toFixed(2)}}°C</p>
+            <img class="weather-conditoin-img" src="http://openweathermap.org/img/wn/{{city.weather[0].icon}}@2x.png" alt="star-icon"/>
+            <h1>{{(city.main.temp - 273.15).toFixed(2)}}°C</h1>
           </ion-col>
           <ion-col>
             <p>Feels like:  {{(city.main.feels_like - 273.15).toFixed(2)}}°C</p>
@@ -28,11 +24,11 @@
           </ion-col>
         </ion-row>
         <ion-row>
-          <p>{{city.weather.description}}</p>
+          <ion-col>
+            <h2>{{city.weather[0].description}}</h2>
+          </ion-col>
         </ion-row>
       </ion-card-content>
     </ion-card>
-    <img src = "http://openweathermap.org/img/wn/10d@2x.png"/>
-    <ion-button (onClick)="makeRequest">Fazer uma request</ion-button>
   </div>
 </ion-content>

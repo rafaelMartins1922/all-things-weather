@@ -24,3 +24,75 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+ion-content {
+    font-family: 'Inter', sans-serif;
+}
+
+.div-content{
+    min-height: 100%;
+    background-image: url("assets/bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+form {
+    width: 80%;
+}
+
+ion-card{
+    width: 80%;
+}
+
+.searchbar{
+    --background:white;
+}
+
+ion-card{
+    background: rgba($color: #000000, $alpha: 0.53);
+    color:white;
+}
+
+ion-card-title{
+    color:white;
+}
+
+ion-card-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+ion-row{
+    text-align: center;
+}
+
+ion-col{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ion-col p{
+    font-size: 14px;
+    font-weight: bold;
+}
+
+h2{
+    font-size: medium;
+    font-weight:bold;
+}
+
+.weather-conditoin-img{
+    height:75%;
+    width:60%;
+}
+
+ion-card-header ion-row{
+    display:flex;
+    justify-content: center;
+}
