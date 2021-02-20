@@ -42,6 +42,11 @@ export class Tab1Page {
   }
 
   public searchCityByName(form: FormGroup){
+    console.log(form.value.search);
+    if(form.value.search == '' || form.value.search == null){
+      this.getCurrentLocation();
+      return;
+    }
     this.openWeatherMapService.cityNameSearch(form.value.search).subscribe((res) => {
       this.weatherData = [res];
       console.log("search by name",this.weatherData);
@@ -59,8 +64,6 @@ export class Tab1Page {
       favorites.push(id);
     }
     localStorage.setItem('favorites',JSON.stringify(favorites));
-    console.log(localStorage.getItem('favorites'));
-    console.log('SSSSSSSSSSSSSSAAAAAAAAAAA');
   }
 
   public checkFavorites(){

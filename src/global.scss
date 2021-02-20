@@ -35,6 +35,7 @@ ion-content {
     background-image: url("assets/bg.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     display:flex;
     flex-direction: column;
     align-items: center;
@@ -54,12 +55,12 @@ ion-card{
 }
 
 ion-card{
-    background: rgba($color: #000000, $alpha: 0.53);
-    color:white;
+    background: rgba($color: white, $alpha: 0.4);
+    color:rgba($color: black, $alpha: 0.9);
 }
 
 ion-card-title{
-    color:white;
+    color:rgba($color: black, $alpha: 0.9);
 }
 
 ion-card-title{
@@ -78,7 +79,7 @@ ion-col{
 }
 
 ion-col p{
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
 }
 
@@ -95,4 +96,8 @@ h2{
 ion-card-header ion-row{
     display:flex;
     justify-content: center;
+}
+
+h1{
+    font-weight: bold;
 }

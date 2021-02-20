@@ -4,15 +4,12 @@
       <ion-card-header>
         <ion-row>
           <ion-card-title>{{city.name}}</ion-card-title>
-          <ion-button (click) = "markCityAsFavorite(city.id)">
-            <img src="../../assets/boorkmarks-icon.svg"/>
-          </ion-button>
         </ion-row>
       </ion-card-header>
       <ion-card-content>
         <ion-row>
           <ion-col>
-            <img src="http://openweathermap.org/img/wn/{{city.weather[0].icon}}@2x.png" alt="star-icon"/>
+            <img src="http://openweathermap.org/img/wn/{{city.weather[0].icon}}@2x.png" alt="weather-icon"/>
             <p>{{(city.main.temp - 273.15).toFixed(2)}}°C</p>
           </ion-col>
           <ion-col>

@@ -18,6 +18,10 @@ export class OpenWeatherMapService {
   constructor(public http: HttpClient) { }
 
   cityNameSearch(q:string = null, mode:string = null, units:string = null, lang: string = null): Observable<any>{
+    if(q == '' || q == null){
+      this.geoCoordinatesSearch();
+      return;
+    }
     let url = 'http://api.openweathermap.org/data/2.5/weather?';
     let params = new HttpParams();
     params = q==null? params: params.append('q',q);
@@ -58,7 +62,7 @@ export class OpenWeatherMapService {
     let params = new HttpParams();
     params = lat==null? params: params.append('lat',lat);
     params = long==null? params: params.append('lon',long);
-    params = params.append('cnt','6');
+    params = params.append('cnt','4');
     params = long==null? params: params.append('appid',environment.appid);
     return this.http.get(url,{
       params: params
